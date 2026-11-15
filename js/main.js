@@ -182,7 +182,7 @@
   function initStory() {
     var track = $('#storyTrack');
     if (!track) return;
-    var book = $('#storyPages'), scenes = $$('.scene', track), dots = $$('.story-dot', track);
+    var book = $('#storybook'), scenes = $$('.scene', track), dots = $$('.story-dot', track);
     var prev = $('#storyPrev'), next = $('#storyNext'), count = $('#storyCount');
     var n = scenes.length, cur = -1, startX = 0, startY = 0;
     if (!book || !n) return;

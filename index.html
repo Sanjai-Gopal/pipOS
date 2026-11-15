@@ -588,8 +588,17 @@
           <span class="win-title">bedtime-storybook.exe</span>
           <span class="story-count" id="storyCount" aria-live="polite">Page 1 of 6</span>
         </div>
-        <div class="storybook" id="storyPages" tabindex="0" aria-label="Pip's bedtime storybook. Use the arrow keys or buttons to turn pages.">
+        <div class="storybook" id="storybook" tabindex="0" aria-label="Pip's bedtime storybook. Use the arrow keys or buttons to turn pages.">
           <div class="scenes" aria-live="polite">
+            <article class="scene is-active" aria-labelledby="sc1">
+      <h2 class="sr-only" id="storyH">Pip's story</h2>
+      <div class="story-track" id="storyTrack" style="--n:4">
+        <div class="win story-stage">
+          <div class="win-bar">
+            <h3 class="win-title">bedtime.exe</h3>
+            <span class="story-prog" aria-hidden="true"><i id="storyBar"></i></span>
+          </div>
+          <div class="scenes">
             <article class="scene is-active" aria-labelledby="sc1" tabindex="-1">
               <div class="scene-art">
                 <svg viewBox="0 0 320 200" aria-hidden="true">
@@ -645,7 +654,7 @@
               </div>
               <div class="scene-text"><h3 id="sc4" data-i18n="story_h4">The night shift</h3><p data-i18n="story_p4">Now Pip is a Junior Dream Engineer: lullabies in the lab, nightlights on the shelf, dreams delivered by cloud before sunrise. Tonight's route has seven stops. Leave your window open a crack.</p></div>
             </article>
-            <article class="scene" aria-labelledby="sc5" aria-hidden="true" inert tabindex="-1">
+            <article class="scene" aria-labelledby="sc5">
               <div class="scene-art">
                 <svg viewBox="0 0 320 200" aria-hidden="true">
                   <rect class="s-sky" width="320" height="200" rx="10"/>
@@ -658,7 +667,7 @@
               </div>
               <div class="scene-text"><h3 id="sc5">A pocket of stars</h3><p>One evening, a star fell into Pip's pocket. Pip climbed the cloud ladder, returned it to the sky, and kept one tiny sparkle for the nursery window.</p></div>
             </article>
-           <article class="scene" aria-labelledby="sc6" aria-hidden="true" inert tabindex="-1">
+            <article class="scene" aria-labelledby="sc6">
               <div class="scene-art">
                 <svg viewBox="0 0 320 200" aria-hidden="true">
                   <rect class="s-sky" width="320" height="200" rx="10"/>
@@ -687,6 +696,7 @@
           </div>
         </div>
       </div>
+    </div>
     </section>
 
     <!-- WALL -->
