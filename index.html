@@ -129,6 +129,7 @@
     <a href="#work"><span class="ic ic-box" aria-hidden="true"></span>My Toys</a>
     <a href="#terminal"><span class="ic ic-term" aria-hidden="true"></span>terminal.exe</a>
     <a href="#monitor"><span class="ic ic-gauge" aria-hidden="true"></span>monitor.exe</a>
+    <a href="#calc"><span class="ic ic-calc" aria-hidden="true"></span>calc.exe</a>
     <a href="#stickers"><span class="ic ic-star" aria-hidden="true"></span>stickers.exe</a>
     <a href="#story"><span class="ic ic-book" aria-hidden="true"></span>bedtime.exe</a>
     <a href="#wall"><span class="ic ic-pin" aria-hidden="true"></span>wish wall</a>
@@ -1008,7 +1009,77 @@
                     <!-- Populated dynamically by monitor.js -->
                   </tbody>
                 </table>
+
+        <!-- Starlight Scientific Calculator -->
+        <article id="calc" class="win w-calc" data-foldable aria-labelledby="calcTitle">
+          <div class="win-bar">
+            <h3 class="win-title" id="calcTitle">starlight-calc.exe</h3>
+            <span class="win-hint" aria-hidden="true">[chimes: on]</span>
+          </div>
+          <div class="win-body">
+            <div class="proj-head">
+              <p>Pip's nursery math machine. Standard arithmetic, scientific trigonometry, logarithms, and musical pentatonic chimes.</p>
+            </div>
+            <div class="calc-wrap">
+              <div class="calc-screen" aria-live="polite">
+                <div class="calc-expr-row">
+                  <span id="calcMemFlag" class="calc-mem-flag" aria-hidden="true">M</span>
+                  <span id="calcExpr" class="calc-expr"></span>
+                </div>
+                <div id="calcDisplay" class="calc-display" role="status">0</div>
               </div>
+
+              <div class="calc-top-row">
+                <button type="button" class="btn btn-tiny" id="calcAngleMode" data-act="mode">DEG</button>
+                <button type="button" class="btn btn-tiny" data-act="sheep" aria-label="Count sleepy sheep">🐑 Count Sheep</button>
+              </div>
+
+              <div class="calc-grid" id="calcKeys">
+                <!-- Memory row -->
+                <button type="button" class="calc-btn is-mem" data-act="mem" data-val="MC">MC</button>
+                <button type="button" class="calc-btn is-mem" data-act="mem" data-val="MR">MR</button>
+                <button type="button" class="calc-btn is-mem" data-act="mem" data-val="M+">M+</button>
+                <button type="button" class="calc-btn is-mem" data-act="mem" data-val="M-">M-</button>
+                <button type="button" class="calc-btn is-warn" data-act="clear">AC</button>
+
+                <!-- Sci Row 1 -->
+                <button type="button" class="calc-btn is-sci" data-act="sci" data-val="sin">sin</button>
+                <button type="button" class="calc-btn is-sci" data-act="sci" data-val="cos">cos</button>
+                <button type="button" class="calc-btn is-sci" data-act="sci" data-val="tan">tan</button>
+                <button type="button" class="calc-btn is-sci" data-act="sci" data-val="pi">π</button>
+                <button type="button" class="calc-btn is-sci" data-act="sci" data-val="e">e</button>
+
+                <!-- Sci Row 2 -->
+                <button type="button" class="calc-btn is-sci" data-act="sci" data-val="sqrt">√</button>
+                <button type="button" class="calc-btn is-sci" data-act="sci" data-val="log">log</button>
+                <button type="button" class="calc-btn is-sci" data-act="sci" data-val="ln">ln</button>
+                <button type="button" class="calc-btn is-sci" data-act="sci" data-val="fact">n!</button>
+                <button type="button" class="calc-btn is-op" data-act="op" data-val="^">xʸ</button>
+
+                <!-- Numbers & Ops -->
+                <button type="button" class="calc-btn is-num" data-act="num" data-val="7">7</button>
+                <button type="button" class="calc-btn is-num" data-act="num" data-val="8">8</button>
+                <button type="button" class="calc-btn is-num" data-act="num" data-val="9">9</button>
+                <button type="button" class="calc-btn is-op" data-act="op" data-val="÷">÷</button>
+                <button type="button" class="calc-btn is-act" data-act="back">⌫</button>
+
+                <button type="button" class="calc-btn is-num" data-act="num" data-val="4">4</button>
+                <button type="button" class="calc-btn is-num" data-act="num" data-val="5">5</button>
+                <button type="button" class="calc-btn is-num" data-act="num" data-val="6">6</button>
+                <button type="button" class="calc-btn is-op" data-act="op" data-val="×">×</button>
+                <button type="button" class="calc-btn is-op" data-act="op" data-val="%">%</button>
+
+                <button type="button" class="calc-btn is-num" data-act="num" data-val="1">1</button>
+                <button type="button" class="calc-btn is-num" data-act="num" data-val="2">2</button>
+                <button type="button" class="calc-btn is-num" data-act="num" data-val="3">3</button>
+                <button type="button" class="calc-btn is-op" data-act="op" data-val="-">−</button>
+                <button type="button" class="calc-btn is-sci" data-act="sci" data-val="neg">±</button>
+
+                <button type="button" class="calc-btn is-num" data-act="num" data-val="0">0</button>
+                <button type="button" class="calc-btn is-num" data-act="dot">.</button>
+                <button type="button" class="calc-btn is-sci" data-act="sci" data-val="abs">|x|</button>
+                <button type="button" class="calc-btn is-op" data-act="op" data-val="+">+</button>
+                <button type="button" class="calc-btn is-eq" data-act="eq">=</button>              </div>
             </div>
           </div>
         </article>
@@ -1210,6 +1281,7 @@
   <script src="js/stars.js" defer></script>
   <script src="js/taskbar.js" defer></script>
   <script src="js/monitor.js" defer></script>
+  <script src="js/calc.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

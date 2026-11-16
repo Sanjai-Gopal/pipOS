@@ -245,6 +245,8 @@ code { font-size: 0.9em; background: var(--blush); padding: 0.05rem 0.3rem; bord
 .ic-term::after { border-radius: 2px; border-color: #a4f4c6; }
 .ic-gauge { background: var(--mint); }
 .ic-gauge::after { border-radius: 50% 50% 0 0; }
+.ic-calc { background: var(--butter); }
+.ic-calc::after { border-radius: 2px; }
 .ic-trash { background: var(--paper); }
 .ic-trash::after { border-radius: 2px 2px 8px 8px; }
 
@@ -2709,7 +2711,112 @@ dialog.secret::backdrop { background: rgba(40, 24, 40, 0.55); }
 }
 
 .btn-tiny:active {
-  transform: translate(1px, 1px);
+
+/* ==========================================================================
+   20. Starlight Scientific Calculator (.w-calc)
+   ========================================================================== */
+.w-calc {
+  grid-column: 1 / -1;
+  background: var(--paper);
+}
+
+.calc-wrap {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--cream);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 3px 3px 0 var(--shadow);
+}
+
+.calc-screen {
+  background: #2b2636;
+  color: #a4f4c6;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.4);
+  font-family: monospace, var(--f-ui);
+}
+
+[data-theme="night"] .calc-screen {
+  background: #110e1a;
+  color: #ffda79;
+}
+
+.calc-expr-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 18px;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.calc-mem-flag {
+  font-weight: 700;
+  display: none;
+  background: #a4f4c6;
+  color: #110e1a;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+}
+
+.calc-mem-flag.is-active {
+  display: inline-block;
+}
+
+.calc-expr {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.calc-display {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: 0.05em;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-top: 4px;
+}
+
+.calc-top-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.calc-btn {
+  padding: 12px 6px;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  font-family: var(--f-ui);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+  box-shadow: 1.5px 1.5px 0 var(--shadow);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  user-select: none;
+}
+
+.calc-btn:hover {
+  background: var(--bar);
+}
+
+.calc-btn:active {  transform: translate(1px, 1px);
   box-shadow: none;
 }
 
@@ -2932,3 +3039,45 @@ dialog.secret::backdrop { background: rgba(40, 24, 40, 0.55); }
   }
 }
 
+
+.calc-btn.is-num {
+  font-weight: 700;
+  background: var(--cream);
+  font-size: 1.05rem;
+}
+
+.calc-btn.is-op {
+  background: var(--sky);
+  color: var(--ink);
+}
+
+.calc-btn.is-sci {
+  background: var(--mint);
+  font-size: 0.82rem;
+}
+
+.calc-btn.is-mem {
+  background: var(--blush);
+  font-size: 0.8rem;
+}
+
+.calc-btn.is-warn {
+  background: #f8b4b4;
+  color: #721c24;
+  font-weight: 700;
+}
+
+.calc-btn.is-act {
+  background: var(--butter);
+}
+
+.calc-btn.is-eq {
+  background: var(--berry);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.calc-btn.is-eq:hover {
+  background: var(--berry-2);
+}
