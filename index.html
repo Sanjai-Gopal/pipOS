@@ -87,6 +87,7 @@
     <a href="#about"><span class="ic ic-note" aria-hidden="true"></span>about.txt</a>
     <a href="#shortcuts"><span class="ic ic-key" aria-hidden="true"></span>keys.txt</a>
     <a href="#work"><span class="ic ic-box" aria-hidden="true"></span>My Toys</a>
+    <a href="#terminal"><span class="ic ic-term" aria-hidden="true"></span>terminal.exe</a>
     <a href="#stickers"><span class="ic ic-star" aria-hidden="true"></span>stickers.exe</a>
     <a href="#story"><span class="ic ic-book" aria-hidden="true"></span>bedtime.exe</a>
     <a href="#wall"><span class="ic ic-pin" aria-hidden="true"></span>wish wall</a>
@@ -792,6 +793,30 @@
             </div>
           </div>
         </article>
+
+        <!-- Midnight Interactive Terminal -->
+        <article id="terminal" class="win w-term" data-foldable aria-labelledby="termTitle">
+          <div class="win-bar">
+            <h3 class="win-title" id="termTitle">pip-term.exe</h3>
+            <span class="win-hint" aria-hidden="true">[sh: v1.0]</span>
+          </div>
+          <div class="win-body">
+            <div class="proj-head">
+              <p>Midnight interactive shell. Control the nursery, check moon phase, play melodies, and dispatch wishes directly from CLI.</p>
+            </div>
+            <div class="term-box">
+              <div class="term-screen" id="termScreen" aria-live="polite" role="log" tabindex="0">
+                <div class="term-line-out">PipOS (TM) Midnight Shell v1.0 [Oct 2026]</div>
+                <div class="term-line-out">Type 'help' for available commands, or 'play' for music.</div>
+                <div class="term-line-out">---</div>
+              </div>
+              <div class="term-prompt-row">
+                <span class="term-prompt-label" aria-hidden="true">pip@midnight:~$</span>
+                <input type="text" id="termInput" class="term-input" autocomplete="off" spellcheck="false" aria-label="Terminal command input prompt" placeholder="type a command...">
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -986,6 +1011,7 @@
   <script src="js/stickers.js" defer></script>
   <script src="js/pip.js" defer></script>
   <script src="js/toys.js" defer></script>
+  <script src="js/terminal.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
