@@ -19,6 +19,7 @@ var PRECACHE_ASSETS = [
   'js/toys.js',
   'js/terminal.js',
   'js/taskbar.js',
+  'js/monitor.js',
   'js/main.js',
   'assets/favicon.svg',
   'assets/icon-192.png',

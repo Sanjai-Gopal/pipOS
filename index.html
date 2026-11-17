@@ -127,6 +127,7 @@
     <a href="#shortcuts"><span class="ic ic-key" aria-hidden="true"></span>keys.txt</a>
     <a href="#work"><span class="ic ic-box" aria-hidden="true"></span>My Toys</a>
     <a href="#terminal"><span class="ic ic-term" aria-hidden="true"></span>terminal.exe</a>
+    <a href="#monitor"><span class="ic ic-gauge" aria-hidden="true"></span>monitor.exe</a>
     <a href="#stickers"><span class="ic ic-star" aria-hidden="true"></span>stickers.exe</a>
     <a href="#story"><span class="ic ic-book" aria-hidden="true"></span>bedtime.exe</a>
     <a href="#wall"><span class="ic ic-pin" aria-hidden="true"></span>wish wall</a>
@@ -862,6 +863,81 @@
             </div>
           </div>
         </article>
+
+        <!-- System Resource Monitor -->
+        <article id="monitor" class="win w-monitor" data-foldable aria-labelledby="monitorTitle">
+          <div class="win-bar">
+            <h3 class="win-title" id="monitorTitle">pip-monitor.exe</h3>
+            <span class="win-hint" aria-hidden="true">[vitals: ok]</span>
+          </div>
+          <div class="win-body">
+            <div class="proj-head">
+              <p>Nursery system diagnostics. Track live frame cadence, dream memory heap, starlight power, and active toy processes.</p>
+            </div>
+            <div class="mon-grid">
+              <div class="mon-card">
+                <div class="mon-card-head">
+                  <span class="mon-card-title">Slumber Cadence (FPS)</span>
+                  <span class="mon-card-val" id="monFpsVal">60 FPS (16.6ms)</span>
+                </div>
+                <div class="mon-bar-wrap">
+                  <div class="mon-bar-fill" id="monFpsBar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="60" style="width: 100%;"></div>
+                </div>
+                <svg id="monSparkline" class="mon-sparkline" viewBox="0 0 180 36" aria-label="Live frame rate sparkline chart" role="img">
+                  <polyline class="spark-line" points="0,18 30,18 60,18 90,18 120,18 150,18 180,18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+
+              <div class="mon-card">
+                <div class="mon-card-head">
+                  <span class="mon-card-title">Dream Memory (Heap)</span>
+                  <span class="mon-card-val" id="monMemVal">28.4 MB / 64.0 MB (44%)</span>
+                </div>
+                <div class="mon-bar-wrap">
+                  <div class="mon-bar-fill" id="monMemBar" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100" style="width: 44%;"></div>
+                </div>
+                <div class="mon-card-actions">
+                  <button type="button" class="btn btn-tiny" id="monFlushBtn" aria-label="Sweep memory heap buffer">Sweep Buffer</button>
+                </div>
+              </div>
+
+              <div class="mon-card">
+                <div class="mon-card-head">
+                  <span class="mon-card-title">Starlight Reserve (Power)</span>
+                  <span class="mon-card-val" id="monBatteryVal">100% ⚡ (Starlight AC)</span>
+                </div>
+                <div class="mon-bar-wrap">
+                  <div class="mon-bar-fill is-battery" id="monBatteryBar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                </div>
+                <div class="mon-card-note">Celestial power grid stable</div>
+              </div>
+            </div>
+
+            <div class="mon-procs">
+              <div class="mon-procs-head">
+                <h4>Active Nursery Processes</h4>
+                <div class="mon-procs-actions">
+                  <button type="button" class="btn btn-tiny" id="monCalmBtn">Calm / Sleep All</button>
+                </div>
+              </div>
+              <div class="table-scroll">
+                <table class="proc-table" id="monProcTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Process</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Memory</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="monProcBody">
+                    <!-- Populated dynamically by monitor.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -1058,6 +1134,7 @@
   <script src="js/toys.js" defer></script>
   <script src="js/terminal.js" defer></script>
   <script src="js/taskbar.js" defer></script>
+  <script src="js/monitor.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
