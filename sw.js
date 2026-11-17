@@ -18,6 +18,7 @@ var PRECACHE_ASSETS = [
   'js/pip.js',
   'js/toys.js',
   'js/terminal.js',
+  'js/taskbar.js',
   'js/main.js',
   'assets/favicon.svg',
   'assets/icon-192.png',

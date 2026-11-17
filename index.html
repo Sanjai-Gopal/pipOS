@@ -83,7 +83,46 @@
     </div>
   </header>
 
-  <nav class="desk-icons" aria-label="Desktop shortcuts">
+  <!-- Pip OS Start Menu -->
+  <div id="startMenu" class="start-menu" hidden role="menu" aria-label="Pip OS Start Menu">
+    <div class="start-menu-head">
+      <div class="start-avatar">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><use href="#star"/></svg>
+      </div>
+      <div class="start-user">
+        <span class="start-name">Pip the Skull Baby</span>
+        <span class="start-status">Midnight Caretaker • v1.5</span>
+      </div>
+    </div>
+    <div class="start-menu-body">
+      <div class="start-menu-col">
+        <div class="start-col-title">Playable Toys</div>
+        <ul class="start-menu-list" role="none">
+          <li role="none"><a href="#lab" class="start-item" role="menuitem"><span class="start-ic" aria-hidden="true">♪</span>Lullaby Lab</a></li>
+          <li role="none"><a href="#lights" class="start-item" role="menuitem"><span class="start-ic" aria-hidden="true">🔦</span>Nightlights</a></li>
+          <li role="none"><a href="#blocks" class="start-item" role="menuitem"><span class="start-ic" aria-hidden="true">🧱</span>Rattle & Blocks</a></li>
+          <li role="none"><a href="#route" class="start-item" role="menuitem"><span class="start-ic" aria-hidden="true">☁️</span>Dream Delivery</a></li>
+          <li role="none"><a href="#story" class="start-item" role="menuitem"><span class="start-ic" aria-hidden="true">📖</span>Bedtime Story</a></li>
+          <li role="none"><a href="#stickers" class="start-item" role="menuitem"><span class="start-ic" aria-hidden="true">⭐</span>Sticker Book</a></li>
+        </ul>
+      </div>
+      <div class="start-menu-col">
+        <div class="start-col-title">System & Shortcuts</div>
+        <ul class="start-menu-list" role="none">
+          <li role="none"><a href="#wall" class="start-item" role="menuitem"><span class="start-ic" aria-hidden="true">📌</span>Wish Wall</a></li>
+          <li role="none"><a href="#about" class="start-item" role="menuitem"><span class="start-ic" aria-hidden="true">📄</span>About Pip</a></li>
+          <li role="none"><a href="#shortcuts" class="start-item" role="menuitem"><span class="start-ic" aria-hidden="true">⌨️</span>Keys Cheat Sheet</a></li>
+          <li role="none"><button type="button" class="start-item" role="menuitem" data-start-act="fullscreen"><span class="start-ic" aria-hidden="true">⛶</span>Toggle Fullscreen</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="start-menu-foot">
+      <span class="start-foot-note">Pip OS 10.0 • Midnight Nursery</span>
+      <button type="button" class="btn btn-tiny" data-start-act="close" aria-label="Close Start Menu">✕</button>
+    </div>
+  </div>
+
+<nav class="desk-icons" aria-label="Desktop shortcuts">
     <a href="#about"><span class="ic ic-note" aria-hidden="true"></span>about.txt</a>
     <a href="#shortcuts"><span class="ic ic-key" aria-hidden="true"></span>keys.txt</a>
     <a href="#work"><span class="ic ic-box" aria-hidden="true"></span>My Toys</a>
@@ -408,6 +447,12 @@
             <div class="row row-between">
               <button class="btn btn-primary" id="blockDrop" type="button" data-silent>Drop block</button>
               <p class="score" id="blockScore" aria-live="polite" aria-atomic="true">Height 0, best 0</p>
+            </div>
+            <div class="block-leaderboard" id="blockLeaderboard">
+              <span class="block-leaderboard-title">Top 5 Scores</span>
+              <ol class="block-leaderboard-list" id="blockLeaderboardList">
+                <li class="block-leaderboard-empty">No scores yet &mdash; start stacking!</li>
+              </ol>
             </div>
           </div>
         </article>
@@ -1012,6 +1057,7 @@
   <script src="js/pip.js" defer></script>
   <script src="js/toys.js" defer></script>
   <script src="js/terminal.js" defer></script>
+  <script src="js/taskbar.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

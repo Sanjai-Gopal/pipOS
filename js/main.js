@@ -255,7 +255,12 @@
     dots.forEach(function (d, i) {
       d.addEventListener('click', function () {
         setScene(i);
-        if (scenes[i] && scenes[i].focus) scenes[i].focus({ preventScroll: true });
+        if (scenes[i]) {
+          if (scenes[i].scrollIntoView) {
+            scenes[i].scrollIntoView({ behavior: reduce && reduce.matches ? 'auto' : 'smooth', block: 'nearest' });
+          }
+          if (scenes[i].focus) scenes[i].focus({ preventScroll: true });
+        }
       });
       d.addEventListener('keydown', function (e) {
         var nextDot = -1;
