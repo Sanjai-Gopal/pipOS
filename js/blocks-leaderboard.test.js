@@ -137,3 +137,15 @@ test('Canvas rr() and block highlight logic handles narrow widths and chips with
     assert.ok(call.r >= 0, `arcTo radius ${call.r} must be non-negative`);
   }
 });
+
+test('drop() guards against null st.cur and correctly announces 0 on first drop collapse (Fixes #226)', () => {
+  const toysSrc = fs.readFileSync(TOYS_JS_PATH, 'utf8');
+
+  // Verify drop() has null guards before accessing c.x
+  assert.match(toysSrc, /if\s*\(\s*!st\.cur\s*\|\|\s*!st\.stack\s*\|\|\s*!st\.stack\.length\s*\)\s*return/,
+    'drop() must guard against null st.cur and st.stack before calculating overlaps');
+
+  // Verify hud reports Final: st.score when st.over is true
+  assert.match(toysSrc, /st\.over\s*\?\s*['"]Final:\s*['"]\s*\+\s*st\.score/,
+    'hud must announce Final: st.score rather than stack.length on game over');
+});

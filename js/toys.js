@@ -845,8 +845,8 @@
     }
     function hud() {
       if (!st) return;
-      var txt = 'Height ' + (st.score || 0) + ', best ' + best;
-      if (st.combo > 1) {
+      var txt = (st.over ? 'Final: ' + st.score : 'Height ' + (st.score || 0)) + ', best ' + best;
+      if (st.combo > 1 && !st.over) {
         txt += ' (Combo x' + st.combo + '!)';
       }
       if (scoreEl) scoreEl.textContent = txt;
@@ -855,7 +855,8 @@
     function drop() {
       if (!st) { reset(); return; }
       if (st.over) { reset(); return; }
-      if (!st.cur || typeof st.cur.x !== 'number' || isNaN(st.cur.x)) {
+      if (!st.cur || !st.stack || !st.stack.length) return;
+      if (typeof st.cur.x !== 'number' || isNaN(st.cur.x)) {
         spawn();
         ensureLoop();
         return;
