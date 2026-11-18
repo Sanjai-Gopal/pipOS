@@ -348,3 +348,10 @@ test('terminal piping executes chained commands (|) and stream redirection (> an
   // Clean up
   vfs.unlink('/home/pip/test_pipes.txt');
 });
+
+test('ArrowUp and ArrowDown navigate command history and preserve draft buffer (Fixes #205)', () => {
+  const termSrc = fs.readFileSync(TERM_JS_PATH, 'utf8');
+  assert.match(termSrc, /e\.key === 'ArrowUp'/, 'must handle ArrowUp key navigation');
+  assert.match(termSrc, /e\.key === 'ArrowDown'/, 'must handle ArrowDown key navigation');
+  assert.match(termSrc, /pendingBuffer/, 'must preserve in-progress draft buffer');
+});

@@ -45,6 +45,7 @@
 
   var history = [];
   var historyIndex = -1;
+  var pendingBuffer = '';
 
   function sanitize(str) {
     if (!str) return '';
@@ -651,6 +652,7 @@
 
     history.push(raw);
     historyIndex = history.length;
+    pendingBuffer = '';
 
     // Check for redirection: >> or >
     var isAppend = false;
@@ -988,11 +990,16 @@
         if (audio.isOn()) audio.pop();
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        if (history.length > 0 && historyIndex > 0) {
-          historyIndex--;
-          input.value = history[historyIndex];
-          setCursorEnd(input);
-          updateGhostAndSuggestions();
+        if (history.length > 0) {
+          if (historyIndex === history.length) {
+            pendingBuffer = input.value;
+          }
+          if (historyIndex > 0) {
+            historyIndex--;
+            input.value = history[historyIndex];
+            setCursorEnd(input);
+            updateGhostAndSuggestions();
+          }
         }
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
@@ -1001,9 +1008,9 @@
           input.value = history[historyIndex];
           setCursorEnd(input);
           updateGhostAndSuggestions();
-        } else {
+        } else if (historyIndex === history.length - 1) {
           historyIndex = history.length;
-          input.value = '';
+          input.value = pendingBuffer;
           setCursorEnd(input);
           updateGhostAndSuggestions();
         }
