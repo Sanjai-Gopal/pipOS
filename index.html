@@ -1484,7 +1484,7 @@
                 <span>D5</span>
                 <span>C5</span>
               </div>
-              <div id="synthGrid" class="synth-grid" role="grid" aria-label="Lullaby sequencer 8-step grid"></div>
+              <div id="synthGrid" class="synth-grid" role="region" aria-label="Lullaby sequencer 8-step grid"></div>
             </div>
           </div>
         </article>
@@ -1914,12 +1914,12 @@
     </div>
   </div>
   <!-- Desktop Right-Click Context Menu -->
-  <menu id="desktopContextMenu" class="desktop-context-menu" hidden role="menu" aria-label="Desktop Context Menu" tabindex="-1">
-    <li role="none"><button type="button" id="cmArrange" class="cm-item" role="menuitem">📐 Arrange Icons to Grid</button></li>
-    <li role="none"><button type="button" id="cmTheme" class="cm-item" role="menuitem">🌓 Toggle Day/Night Theme</button></li>
-    <li role="none"><button type="button" id="cmTerminal" class="cm-item" role="menuitem">💻 Open Terminal</button></li>
-    <li role="none"><button type="button" id="cmSound" class="cm-item" role="menuitem">🎵 Mute/Unmute Sounds</button></li>
-  </menu>
+  <div id="desktopContextMenu" class="desktop-context-menu" hidden role="menu" aria-label="Desktop Context Menu" tabindex="-1">
+    <button type="button" id="cmArrange" class="cm-item" role="menuitem">📐 Arrange Icons to Grid</button>
+    <button type="button" id="cmTheme" class="cm-item" role="menuitem">🌓 Toggle Day/Night Theme</button>
+    <button type="button" id="cmTerminal" class="cm-item" role="menuitem">💻 Open Terminal</button>
+    <button type="button" id="cmSound" class="cm-item" role="menuitem">🎵 Mute/Unmute Sounds</button>
+  </div>
   <canvas id="pipFxCanvas" class="pip-fx-canvas" aria-hidden="true"></canvas>
   <!-- Alt+Tab Task Switcher Modal -->
   <div id="taskSwitcherModal" class="task-switcher-modal" hidden role="region" aria-label="Application Task Switcher">
