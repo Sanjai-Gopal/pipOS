@@ -403,6 +403,7 @@
             it.classList.remove('is-found');
           });
         }
+        room.classList.remove('is-done');
         saveProgress();
         syncRoomElements();
         updateRoomView();

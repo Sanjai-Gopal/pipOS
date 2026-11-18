@@ -80,3 +80,15 @@ test('js/toys.js implements room switching, PIP.store persistence, and room rese
   assert.match(toysSrc, /drResetRoom/, 'Must support room resetting');
   assert.match(toysSrc, /data-current-room/, 'Must update current room attribute on darkroom');
 });
+
+test('js/toys.js dynamically synchronizes and resets .is-done class on darkroom container (Fixes #228)', () => {
+  const toysSrc = fs.readFileSync(TOYS_JS_PATH, 'utf8');
+
+  // Must dynamically synchronize is-done on room view update
+  assert.match(toysSrc, /room\.classList\.toggle\(\s*['"]is-done['"]\s*,\s*curFound\s*>=\s*total/,
+    'updateRoomView must toggle is-done class based on current room progress');
+
+  // Must remove is-done on resetBtn click
+  assert.match(toysSrc, /room\.classList\.remove\(\s*['"]is-done['"]\s*\)/,
+    'resetBtn handler must remove is-done class when resetting room dreams');
+});
